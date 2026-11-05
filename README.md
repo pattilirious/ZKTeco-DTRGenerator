@@ -13,9 +13,9 @@ py export_logs.py
 
 or make a desktop shortcut of Export DTR.bat (You can customize the icon the shortcut and rename it to whatever you like)
 
-3. Open attendance.csv or if you did the shortcut, it will automatically open
+- Open attendance.csv or if you did the shortcut, it will automatically open
 
-4. Done
+- Done
 
 Notes:
 - if generating again, make sure attendance.csv is closed before running the command.

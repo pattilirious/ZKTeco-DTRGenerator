@@ -18,6 +18,6 @@ or make a desktop shortcut of Export DTR.bat (You can customize the icon the sho
 - Done
 
 Notes:
-- if generating again, make sure attendance.csv is closed before running the command.
+- if generating again, make sure attendance.csv is closed before running the command/BAT file.
 - if you need to generate attendance from previous months or years, inside export_logs.py, change the number in MONTH_TO_EXPORT = ""
 - don't rename or delete anything in the folder (except attendance.csv, it would just generate a new one after running the script).

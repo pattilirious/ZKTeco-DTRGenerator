@@ -1,5 +1,5 @@
 # ZKTeco-DTRGenerator
-Automatically generates Daily Time Record for the last two months without any use of software. Works with any ZKTeco devices or with any clones/rebrand as long as it's port 4370.
+Automatically generates Daily Time Record without any use of software. Works with any ZKTeco devices or with any clones/rebrand as long as it's port 4370.
 
 Instructions:
 - Win + R and type powershell then press Enter
@@ -19,5 +19,4 @@ or make a desktop shortcut of Export DTR.bat (You can customize the icon the sho
 
 Notes:
 - if generating again, make sure attendance.csv is closed before running the command/BAT file.
-- if you need to generate attendance from previous months or years, inside export_logs.py, change the number in MONTH_TO_EXPORT = ""
 - don't rename or delete anything in the folder (except attendance.csv, it would just generate a new one after running the script).

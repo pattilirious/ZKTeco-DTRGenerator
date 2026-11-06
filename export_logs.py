@@ -6,9 +6,8 @@ import os
 from concurrent.futures import ThreadPoolExecutor
 from collections import defaultdict
 from datetime import timedelta, date
- 
-DOUBLE_PUNCH_MINUTES = 2
-MONTHS_TO_EXPORT = 2  
+
+DOUBLE_PUNCH_MINUTES = 2 
 BREAK_MID = (12, 30)
 LAST_IP_FILE = "last_ip.txt"
 
@@ -18,6 +17,17 @@ def port_open(ip):
             return ip
     except OSError:
         return None
+
+def ask_months(default=2):
+    while True:
+        answer = input(f"How many months to export?: ").strip()
+        if answer == "":
+            return default
+        if answer.isdigit() and int(answer) >= 1:
+            return int(answer)
+        print("Please type a whole number")
+
+MONTHS_TO_EXPORT = ask_months() 
 
 def my_subnet():
     try:
@@ -86,10 +96,8 @@ conn = zk.connect()
 try:
     users = conn.get_users()
     names = {u.user_id: u.name for u in users}
-
     logs = conn.get_attendance()
 
-    # (year, month) -> name -> day -> list of punches
     data = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
     for a in logs:
         key = (a.timestamp.year, a.timestamp.month)

@@ -8,7 +8,7 @@ Instructions:
 pip install pyzk
 
 - Run these command line >
-cd "C:\Your folder's location\Biometrics Attendance Generator"
+cd "C:\Your folder's location\ZKTeco-DTRGenerator"
 and py export_logs.py
 
 or make a desktop shortcut of Export DTR.bat (You can customize the icon the shortcut and rename it to whatever you like)

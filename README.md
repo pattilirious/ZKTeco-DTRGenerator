@@ -2,6 +2,8 @@
 Automatically generates Daily Time Record without any use of software. Works with any ZKTeco devices or with any clones/rebrand as long as it's port 4370.
 
 Instructions:
+- Download Python from https://www.python.org/
+  
 - Win + R and type powershell then press Enter
 
 - Install these package:

@@ -6,7 +6,7 @@ Instructions:
   
 - Win + R and type powershell then press Enter
 
-- Install these package:
+- Install this package:
 pip install pyzk
 
 - Run these command line >

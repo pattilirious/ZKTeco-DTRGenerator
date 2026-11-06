@@ -1,0 +1,21 @@
+Instructions:
+
+    - Download Python from https://www.python.org/
+
+    - Win + R and type powershell then press Enter
+
+    - Install this package: pip install pyzk
+
+    - Run these command line if you are still in powershell
+	- "C:\Your folder's location\ZKTeco-DTRGenerator"
+	- py export_logs.py
+      or make a desktop shortcut of Export DTR.bat (You can customize the icon the shortcut and rename it to whatever you like)
+
+    - Open attendance.csv or if you did the shortcut, it will automatically open
+
+    - Done
+
+Notes:
+
+    - if generating again, make sure attendance.csv is closed before running the command/BAT file.
+    - don't rename or delete anything in the folder (except attendance.csv, it would just generate a new one after running the script).

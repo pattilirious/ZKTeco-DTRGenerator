@@ -18,16 +18,17 @@ def port_open(ip):
     except OSError:
         return None
 
-def ask_months(default=2):
+def ask_choice():
     while True:
-        answer = input(f"How many months to export?: ").strip()
-        if answer == "":
-            return default
+        answer = input(
+            "Which month to export? 1 = this month, 2 = last month, 3 = two months ago, ...\n"
+            "Or type 'all' for the whole year: "
+        ).strip().lower()
+        if answer == "all":
+            return "all"
         if answer.isdigit() and int(answer) >= 1:
             return int(answer)
-        print("Please type a whole number")
-
-MONTHS_TO_EXPORT = ask_months() 
+        print("Please type a number like 1, 2 or 3, or the word all.")
 
 def my_subnet():
     try:
@@ -65,7 +66,6 @@ def dedupe(punches):
             kept.append(p)
     return kept
 
-
 def assign(punches):
     """Return [check_in, break_out, break_in, check_out]."""
     n = len(punches)
@@ -83,13 +83,20 @@ def assign(punches):
         return [punches[0], None, mid, punches[2]]
     return [punches[0], punches[1], punches[-2], punches[-1]]
 
+choice = ask_choice()
+today = date.today()
 wanted = set()
-y, m = date.today().year, date.today().month
-for _ in range(MONTHS_TO_EXPORT):
+
+if choice == "all":
+    for mo in range(1, today.month + 1):
+        wanted.add((today.year, mo))
+else:
+    y, m = today.year, today.month
+    for _ in range(choice - 1):
+        m -= 1
+        if m == 0:
+            m, y = 12, y - 1
     wanted.add((y, m))
-    m -= 1
-    if m == 0:
-        m, y = 12, y - 1
 
 zk = ZK(find_device(), port=4370, timeout=10)
 conn = zk.connect()
